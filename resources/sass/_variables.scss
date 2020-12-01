@@ -1,5 +1,5 @@
 // Body
-$body-bg: #af5f5f;
+$body-bg: #928ceb;
 
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
@@ -17,3 +17,15 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+
+
+#card{
+    border: none;
+}
+
+#sticky{
+    position: -webkit-sticky;
+    position: sticky;
+    top:0;
+    z-index: 1030;
+}
