@@ -16,39 +16,33 @@ class EventController extends Controller
     public function index()
     {
         $eventList = Event::all();
-        
-        return view ('./events/events', ['eventList' => $eventList]);
-        
+
+        return view('events.events', ['eventList' => $eventList]);
     }
-    
+
     public function showEvent($id)
     {
-        
+
         $event = Event::find($id);
-        return view ('./events/eventDetail', ['event' => $event]);
-        
+        return view('events.eventDetail', ['event' => $event]);
     }
 
-    public function inscribe(){
+    public function inscribe()
+    {
 
-        if(Auth::check()){
+        if (Auth::check()) {
 
             $eventList = Event::all();
-        
-            return view ('./events/events', ['eventList' => $eventList]);
+            
+            return view('./events/events', ['eventList' => $eventList]);
+        } else {
 
-        }else{
-
-
-            return view('./auth/register') ;
-
+            return view('auth.register');
         }
-
     }
 
     public function create()
     {
-        
     }
 
     /**
