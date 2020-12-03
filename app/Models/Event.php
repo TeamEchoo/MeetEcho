@@ -18,9 +18,11 @@ class Event extends Model
         'capacity',
         'instructor',
         'register_users',
-        'link'
+        'link',
+        'highlighted',
 
     ];
+
 
     public function users()
     {

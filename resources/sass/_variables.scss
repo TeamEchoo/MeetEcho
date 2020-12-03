@@ -3,7 +3,7 @@
 $body-bg: #928ceb;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-sans-serif: "Nunito", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
@@ -19,29 +19,31 @@ $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
 
-
-#card{
+#card {
     border: none;
-    
-
+    margin-bottom: 15px;
+    margin-right: 15px;
 }
 
-#sticky{
+#sticky {
     position: -webkit-sticky;
     position: sticky;
-    top:0;
+    top: 0;
     z-index: 1030;
 }
 
-#echoContainer{
+#echoContainer {
     max-width: 95%;
 }
 
-.cardSection{
+.cardSection {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     padding-top: 50px;
 }
 
-#carouselback{
+#carouselback {
     background-color: rgba(0, 0, 0, 0.5);
 }
 h1 {
@@ -49,7 +51,7 @@ h1 {
     text-shadow: 1px 1px grey;
 }
 
-#createEventForm{
+#createEventForm {
     padding-right: 200px;
     padding-left: 200px;
 }

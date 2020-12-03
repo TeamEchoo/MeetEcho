@@ -24,6 +24,7 @@ class CreateEventsTable extends Migration
             $table->integer("capacity");
             $table->string("instructor");
             $table->string("link");
+            $table->boolean("highlighted")->default(false);
         });
     }
 

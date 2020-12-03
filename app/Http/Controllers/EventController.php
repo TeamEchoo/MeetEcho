@@ -19,7 +19,7 @@ class EventController extends Controller
     {
         $eventList = Event::all();
 
-        return view('events.events', ['eventList' => $eventList]);
+        return view('Echo', ['eventList' => $eventList]);
     }
 
     public function showEvent($id)
@@ -35,7 +35,7 @@ class EventController extends Controller
     //     if (Auth::check()) {
 
     //         $eventList = Event::all();
-            
+
     //         return view('./events/events', ['eventList' => $eventList]);
     //     } 
     //     else {
@@ -48,13 +48,13 @@ class EventController extends Controller
     {
 
         if (!Auth::check()) {
-            
+
             return view('auth.register');
         }
 
         $id = Auth::id();
         $user = User::find($id);
-        return view('./users.profile', ['user' => $user]);        
+        return view('./users.profile', ['user' => $user]);
     }
 
 
