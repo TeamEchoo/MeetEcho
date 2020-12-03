@@ -15,16 +15,16 @@ class EventUserSeeder extends Seeder
      */
     public function run()
     {
-        foreach (Event::all() as $event) {
-            $numberOfUsers = rand(0, count(User::all()) - 1);
+        // foreach (Event::all() as $event) {
+        //     $numberOfUsers = rand(0, count(User::all()) - 1);
 
-            foreach (User::all() as $key => $user) {
-                if ($key <= $numberOfUsers) {
-                    $event->users()->attach($user->id);
-                }
-            }
+        //     foreach (User::all() as $key => $user) {
+        //         if ($key <= $numberOfUsers) {
+        //             $event->users()->attach($user->id);
+        //         }
+        //     }
 
-            $event->save();
+        //     $event->save();
         }
-    }
 }
+
