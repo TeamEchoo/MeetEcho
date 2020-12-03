@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/Echo', function () {
+    return view('Echo');
+});
+
+Route::get('/CreateEvents', function () {
+    return view('CreateEvents');
+})->middleware();
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
