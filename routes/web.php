@@ -23,7 +23,7 @@ Route::get('/Echo', function () {
 
 Route::get('/CreateEvents', function () {
     return view('CreateEvents');
-});
+})->middleware();
 
 Auth::routes();
 
