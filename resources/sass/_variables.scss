@@ -21,6 +21,8 @@ $cyan: #6cb2eb;
 
 #card{
     border: none;
+    
+
 }
 
 #sticky{
@@ -30,6 +32,17 @@ $cyan: #6cb2eb;
     z-index: 1030;
 }
 
+#echoContainer{
+    max-width: 95%;
+}
+
+.cardSection{
+    padding-top: 50px;
+}
+
+#carouselback{
+    background-color: rgba(0, 0, 0, 0.5);
+}
 h1 {
     text-align: center;
     text-shadow: 1px 1px grey;

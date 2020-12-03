@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div id="echoContainer" class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div id="card" class="card">
@@ -15,13 +15,14 @@
                 <body>
 
                                                     <!-- CAROUSEL -->
+
                     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
                         <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
                         <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
                     </ol>
-                    <div class="carousel-inner">
+                    <div id="carouselInner" class="carousel-inner">
                         <div class="carousel-item active">
                         <img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTWoexfzoEpVYGD6LswveEBN18F_rKmR-8gluFtO29XoPhAVcPtu-0EzgsEfDC3xFghMrETTOBPA88NRyLwKMs" class="d-block w-100" alt="...">
                         <div id="carouselback" class="carousel-caption d-none d-md-block">
@@ -34,6 +35,7 @@
                         <div id="carouselback" class="carousel-caption d-none d-md-block">
                             <h5>Second slide label</h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p>2077</p>
                         </div>
                         </div>
                         <div class="carousel-item">
@@ -54,11 +56,12 @@
                     </a>
                     </div>
                 </div>
-                    <div class="container">
+                    <!-- <div class="container">
                     <h1 id="echomeet">EchoMeet</h1>
-                    </div>
+                    </div> -->
                     
                                     <!-- CARDS -->
+                  <section class="cardSection">
                    <div class="row row-cols-1 row-cols-md-2">
                     <div class="col mb-4">
                       <div  id="card"class="card">
@@ -66,6 +69,8 @@
                         <div class="card-body">
                           <h5 class="card-title">Card title</h5>
                           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                          <p class="card-text">22-05-2077</p>
+                          <a href="#" class="btn btn-primary">Details</a>
                         </div>
                       </div>
                     </div>
@@ -134,7 +139,7 @@
                       </div>
                     </div>
                   </div>
-                                          
+                  </section>                        
                 </body>
             </html>
         </div>
