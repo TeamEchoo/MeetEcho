@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Event;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Foundation\Auth\User;
 
 
-class EventController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,49 +16,25 @@ class EventController extends Controller
      */
     public function index()
     {
-        $eventList = Event::all();
-
-        return view('events.events', ['eventList' => $eventList]);
+        //
     }
 
-    public function showEvent($id)
+    public function profile()
     {
-
-        $event = Event::find($id);
-        return view('events.eventDetail', ['event' => $event]);
-    }
-
-    // public function inscribe()
-    // {
-
-    //     if (Auth::check()) {
-
-    //         $eventList = Event::all();
-            
-    //         return view('./events/events', ['eventList' => $eventList]);
-    //     } 
-    //     else {
-
-    //         return view('auth.register');
-    //     }
-    // }
-
-    public function inscribe()
-    {
-
-        if (!Auth::check()) {
-            
-            return view('auth.register');
-        }
-
         $id = Auth::id();
         $user = User::find($id);
-        return view('./users.profile', ['user' => $user]);        
+        return view('users.profile', ['profile' => $user]);
+        
     }
 
-
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
+        //
     }
 
     /**
@@ -76,10 +51,10 @@ class EventController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Event  $event
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    public function show($id)
     {
         //
     }
@@ -87,10 +62,10 @@ class EventController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Event  $event
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Event $event)
+    public function edit($id)
     {
         //
     }
@@ -99,10 +74,10 @@ class EventController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Event  $event
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -110,10 +85,10 @@ class EventController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Event  $event
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Event $event)
+    public function destroy($id)
     {
         //
     }
