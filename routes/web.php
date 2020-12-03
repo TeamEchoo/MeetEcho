@@ -28,3 +28,12 @@ Route::get('/CreateEvents', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/events', [App\Http\Controllers\EventController::class, 'index']); 
+
+Route::get('/events/{id}', [App\Http\Controllers\EventController::class, 'showEvent']); 
+
+Route::post('/events/{id}', [App\Http\Controllers\EventController::class, 'inscribe']); 
+
+Route::post('/profile/{id}', [App\Http\Controllers\EventController::class, 'profile']); 
+
