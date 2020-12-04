@@ -29,11 +29,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/Echo', [App\Http\Controllers\EventController::class, 'index']);
+Route::get('/events', [App\Http\Controllers\EventController::class, 'index']);
 
-Route::get('/Echo/{id}', [App\Http\Controllers\EventController::class, 'showEvent']);
+Route::get('/events/{id}', [App\Http\Controllers\EventController::class, 'showEvent']);
 
-Route::post('/events/{id}', [App\Http\Controllers\EventController::class, 'inscribe']);
+Route::post('/events/{id}', [App\Http\Controllers\EventController::class, 'subscribe']);
 
 Route::post('/profile/{id}', [App\Http\Controllers\EventController::class, 'profile']);
 

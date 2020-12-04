@@ -19,7 +19,7 @@ class EventController extends Controller
     {
         $eventList = Event::all();
 
-        return view('Echo', ['eventList' => $eventList]);
+        return view('events.events', ['eventList' => $eventList]);
     }
 
     public function showEvent($id)
@@ -31,7 +31,7 @@ class EventController extends Controller
 
    
 
-    public function inscribe(Request $request, $id)
+    public function subscribe(Request $request, $id)
     {
 
         if (!Auth::check()) {
