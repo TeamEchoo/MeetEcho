@@ -1,22 +1,20 @@
+@extends('layouts.app')
+@section('content')
 
 
-<h1>Hola People</h1>
+<div class="container">
+
+        <h2> {{$event->title}}</h2>
+        <h3> {{$event->description}}</h3>
+        <h3> {{$event->type}}</h3>
+        <h3> {{$event->date}}</h3>
     
-
-        
-    </div>
-
-    <ul>
-        <li>Titulo: {{$event->title}}</li>
-        <li>Descripción: {{$event->description}}</li>
-        <li>Tipo: {{$event->type}}</li>
-        <li>Fecha: {{$event->date}}</li>
-    </ul>
     <form action="http://127.0.0.1:8000/events/{{$event->id}}" method="post">
     @csrf
-    <button type="submit" >Submit</button>
+    <button class="btn btn-primary" type="submit" >Submit</button>
     </form>
-    
+ </div>   
+    @endsection
 
 
 

@@ -10947,6 +10947,7 @@ a.text-dark:focus {
 }
 
 h1 {
+  font-size: 20px;
   text-align: center;
   text-shadow: 1px 1px grey;
 }
