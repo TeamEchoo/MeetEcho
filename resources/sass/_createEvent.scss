@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+    text-shadow: 1px 1px grey;
+}
+
+#createEvent {
+    background-color: $light-color;
+    max-width: 80%;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+@media (min-width: 900px) {
+    #createEvent {
+        max-width: 800px;
+    }
+}

@@ -22,7 +22,7 @@ class EventFactory extends Factory
     public function definition()
     {
         return [
-            "title" =>  $this->faker->sentence,
+            "title" => "This Awesome Event",
             "description" => $this->faker->text,
             "date" => $this->faker->date(),
             "type" => $this->faker->word,

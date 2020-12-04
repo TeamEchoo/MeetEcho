@@ -36,3 +36,5 @@ Route::get('/Echo/{id}', [App\Http\Controllers\EventController::class, 'showEven
 Route::post('/events/{id}', [App\Http\Controllers\EventController::class, 'inscribe']);
 
 Route::post('/profile/{id}', [App\Http\Controllers\EventController::class, 'profile']);
+
+
