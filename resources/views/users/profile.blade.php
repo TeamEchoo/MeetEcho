@@ -1,25 +1,29 @@
+@extends('layouts.app')
+@section('content')
 
 
 <h1>Profile Page</h1>
 
+<div class="container">
 
-    <ul>
-        <li>Usuario: {{$user->name}}</li>
-        <li>Email: {{$user->email}}</li>
-    </ul>
 
-    <ol>EVENTOS A LOS QUE ESTAS INSCRITO:<br>
+    
+    <h3>Usuario: {{$user->name}}</h>
+    <h3>Email: {{$user->email}}</h3>
+    
+
+        <h2 id="userEvents">EVENTOS A LOS QUE ESTAS INSCRITO:</h2>
+    
+
+    <ol class="list-group">
         @foreach ($user->events as $event) 
-        <br>
-            <li>
+        
+            <li class="list-group-item">
             {{$event->title}}
             </li>
         
         @endforeach
     </ol>
-
-    
-
-
-    
+</div>  
+@endsection;
     
