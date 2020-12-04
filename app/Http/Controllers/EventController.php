@@ -29,22 +29,9 @@ class EventController extends Controller
         return view('events.eventDetail', ['event' => $event]);
     }
 
-    // public function inscribe()
-    // {
+   
 
-    //     if (Auth::check()) {
-
-    //         $eventList = Event::all();
-
-    //         return view('./events/events', ['eventList' => $eventList]);
-    //     } 
-    //     else {
-
-    //         return view('auth.register');
-    //     }
-    // }
-
-    public function inscribe()
+    public function inscribe(Request $request, $id)
     {
 
         if (!Auth::check()) {
@@ -52,9 +39,10 @@ class EventController extends Controller
             return view('auth.register');
         }
 
-        $id = Auth::id();
-        $user = User::find($id);
-        return view('./users.profile', ['user' => $user]);
+
+        $user = $request->user();
+        $user->events()->attach($id);
+        return view('./users.profile', ['user' => $user]);        
     }
 
 

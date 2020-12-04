@@ -14,8 +14,12 @@ class CreateEventUserTable extends Migration
     public function up()
     {
         Schema::create('event_user', function (Blueprint $table) {
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('event_id');
+            $table->Id();
+            $table->bigInteger('user_id');
+            $table->bigInteger('event_id');
+            $table->timestamps();
+            
+
         });
     }
 
