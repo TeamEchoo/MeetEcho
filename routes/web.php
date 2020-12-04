@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/Echo', function () {
-    return view('Echo');
-});
+// Route::get('/Echo', function () {
+//     return view('Echo');
+// });
 
 Route::get('/CreateEvents', function () {
     return view('CreateEvents');
@@ -29,11 +29,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/events', [App\Http\Controllers\EventController::class, 'index']); 
+Route::get('/Echo', [App\Http\Controllers\EventController::class, 'index']);
 
-Route::get('/events/{id}', [App\Http\Controllers\EventController::class, 'showEvent']); 
+Route::get('/Echo/{id}', [App\Http\Controllers\EventController::class, 'showEvent']);
 
-Route::post('/events/{id}', [App\Http\Controllers\EventController::class, 'inscribe']); 
+Route::post('/events/{id}', [App\Http\Controllers\EventController::class, 'inscribe']);
 
-Route::post('/profile/{id}', [App\Http\Controllers\EventController::class, 'profile']); 
+Route::post('/profile/{id}', [App\Http\Controllers\EventController::class, 'profile']);
+
 

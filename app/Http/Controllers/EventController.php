@@ -19,7 +19,7 @@ class EventController extends Controller
     {
         $eventList = Event::all();
 
-        return view('events.events', ['eventList' => $eventList]);
+        return view('Echo', ['eventList' => $eventList]);
     }
 
     public function showEvent($id)
@@ -35,9 +35,10 @@ class EventController extends Controller
     {
 
         if (!Auth::check()) {
-            
+
             return view('auth.register');
         }
+
 
         $user = $request->user();
         $user->events()->attach($id);
