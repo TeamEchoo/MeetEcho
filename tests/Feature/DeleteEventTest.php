@@ -31,7 +31,7 @@ class DeleteEventTest extends TestCase
         ]);
 
         $response = $this->actingAs($userAdmin)
-            ->delete(route('events', $event->id))
+            ->delete(route('eventsDelete', $event->id))
             ->assertStatus(200);
             $this->assertDatabaseCount('events', 0);
         
@@ -49,7 +49,7 @@ class DeleteEventTest extends TestCase
         ]);
 
         $response = $this->actingAs($userAdmin)
-            ->delete(route('events', $event->id))
+            ->delete(route('eventsDelete', $event->id))
             ->assertStatus(302);
             $this->assertDatabaseCount('events', 1);
         
