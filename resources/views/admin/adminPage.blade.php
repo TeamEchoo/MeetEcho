@@ -42,7 +42,7 @@
                 <td>No</td>
                 @endif
                 <td>
-                    <a href="#" class="btn btn-primary">Edit</a>
+                    <a href="" class="btn btn-primary">Edit</a>
                     <form action="{{route('eventsDelete', $event->id)}}" method="POST">
                         @method('DELETE')
                         @csrf
@@ -54,6 +54,8 @@
             @endforeach
         </tbody>
     </table>
+
+    <a href="{{route('events.create')}}" class="btn btn-primary">New Event</a>
 
 </div>
 
