@@ -26,7 +26,7 @@
     <div id="app">
         <nav id="sticky" class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/Echo') }}">
+                <a class="navbar-brand" href="{{ url('/events') }}">
                     <div id="navTitle">
                         <h1>ECHO MEET</h1>
                         <h3>events</h3>
