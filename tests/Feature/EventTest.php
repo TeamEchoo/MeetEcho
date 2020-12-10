@@ -4,6 +4,8 @@ namespace Tests\Feature;
 
 use Faker\Factory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Auth;
+
 use Tests\TestCase;
 use App\Models\Event;
 use App\Models\User;
@@ -25,6 +27,14 @@ class EventTest extends TestCase
             ->assertViewIs('events.events');
     }
 
+    public function test_registerUser_can_acess_and_view_events_list()
+    {
+        $response = $this->actingAs(User::factory()->create())
+                ->get('/events');
+        $response->assertStatus(200)
+            ->assertViewIs('events.events');
+    }
+
     public function test_user_can_acess_and_view_a_specific_event_detail()
     {
         $event = Event::factory(1)->create();
@@ -38,7 +48,7 @@ class EventTest extends TestCase
     {
         $event = Event::factory(1)->create();
         $user = User::factory(1)->create();
-        
+
         $response = $this->post('/events/1');
 
         $response->assertStatus(200)
@@ -47,12 +57,12 @@ class EventTest extends TestCase
 
     public function test_RegisterUser_can_enroll_in_specific_event()
     {
+        $this->actingAs(User::factory()->create());
         $event = Event::factory(1)->create();
-        $user = User::factory(1)->create();
-        
+
         $response = $this->post('/events/1');
 
         $response->assertStatus(200)
-            ->assertViewIs('events.events');
+            ->assertViewIs('users.profile');
     }
 }
