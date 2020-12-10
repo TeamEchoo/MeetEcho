@@ -48,6 +48,7 @@ class EventController extends Controller
 
     public function create()
     {
+        return view('CreateEvents');
     }
 
     /**
@@ -58,7 +59,21 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $event = Event::create([
+            'title'         => $request->title,
+            'description'   => $request->description,
+            'date'          => $request->date,
+            'type'          => $request->type,
+            'category'      => $request->category,
+            'capacity'      => $request->capacity,
+            'instructor'    => $request->instructor,
+            'link'          => $request->link,
+            // 'location'    => $request->location
+            // 'highlighted'   => $request->highlighted
+        ]);
+
+
+        return back();
     }
 
     /**

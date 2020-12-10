@@ -17,9 +17,11 @@ class Event extends Model
         'category',
         'capacity',
         'instructor',
-        'register_users',
         'link',
-        'highlighted',
+        // 'register_users',
+        // 'highlighted',
+        // 'location'
+
 
     ];
 

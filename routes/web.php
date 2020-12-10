@@ -18,12 +18,16 @@ Route::get('/', function () {
 });
 
 
-Route::get('/CreateEvents', function () {
-    return view('CreateEvents');
-})->middleware();
+// Route::get('/CreateEvents', function () {
+
+//     return view('CreateEvents');
+// })->middleware();
+
+Route::get('/CreateEvents', [App\Http\Controllers\EventController::class, 'create'])->middleware('checkAdmin')->name('events.create');
+
+Route::post('/CreateEvents', [App\Http\Controllers\EventController::class, 'store'])->name('events.store');
 
 Auth::routes();
-
 
 Route::get('/events', [App\Http\Controllers\EventController::class, 'index'])->name('events');
 
@@ -34,4 +38,6 @@ Route::post('/events/{id}', [App\Http\Controllers\EventController::class, 'subsc
 Route::delete('/events/{id}', [App\Http\Controllers\EventController::class, 'destroy'])->middleware('checkAdmin')->name('eventsDelete');
 
 Route::post('/profile/{id}', [App\Http\Controllers\EventController::class, 'profile']);
+
+// Route::get('/createEvents', [App\Http\Controllers\EventController::class, 'store'])->name('events.store');
 
