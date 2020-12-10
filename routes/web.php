@@ -37,6 +37,10 @@ Route::post('/events/{id}', [App\Http\Controllers\EventController::class, 'subsc
 
 Route::delete('/events/{id}', [App\Http\Controllers\EventController::class, 'destroy'])->middleware('checkAdmin')->name('eventsDelete');
 
+Route::post('/events/{id}', [App\Http\Controllers\EventController::class, 'edit'])->middleware('checkAdmin')->name('eventsEdit');
+
+Route::post('/events/{id}', [App\Http\Controllers\EventController::class, 'update'])->middleware('checkAdmin')->name('eventsUpdate');
+
 Route::post('/profile/{id}', [App\Http\Controllers\EventController::class, 'profile']);
 
 // Route::get('/createEvents', [App\Http\Controllers\EventController::class, 'store'])->name('events.store');
