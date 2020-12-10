@@ -18,10 +18,12 @@ Route::get('/', function () {
 });
 
 
-Route::get('/CreateEvents', function () {
+// Route::get('/CreateEvents', function () {
 
-    return view('CreateEvents');
-})->middleware();
+//     return view('CreateEvents');
+// })->middleware();
+
+Route::get('/CreateEvents', [App\Http\Controllers\EventController::class, 'create'])->middleware('checkAdmin')->name('events.create');
 
 Route::post('/CreateEvents', [App\Http\Controllers\EventController::class, 'store'])->name('events.store');
 
