@@ -14,12 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('events');
 });
 
-// Route::get('/Echo', function () {
-//     return view('Echo');
-// });
 
 Route::get('/CreateEvents', function () {
     return view('CreateEvents');
@@ -27,9 +24,8 @@ Route::get('/CreateEvents', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/events', [App\Http\Controllers\EventController::class, 'index']);
+Route::get('/events', [App\Http\Controllers\EventController::class, 'index'])->name('events');
 
 Route::get('/events/{id}', [App\Http\Controllers\EventController::class, 'showEvent']);
 
@@ -38,8 +34,4 @@ Route::post('/events/{id}', [App\Http\Controllers\EventController::class, 'subsc
 Route::delete('/events/{id}', [App\Http\Controllers\EventController::class, 'destroy'])->middleware('checkAdmin')->name('eventsDelete');
 
 Route::post('/profile/{id}', [App\Http\Controllers\EventController::class, 'profile']);
-
-
-
-
 
