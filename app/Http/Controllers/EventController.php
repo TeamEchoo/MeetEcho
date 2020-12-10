@@ -83,8 +83,7 @@ class EventController extends Controller
         $event = Event::find($id);
         $event->edit();
         redirect(route('home'));
-
-        
+  
     }
 
     /**
@@ -96,7 +95,7 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event , $id)
     {
-            $this->validate($request,[ 'title'=>'required', 'description'=>'required', 'date'=>'required', 'type'=>'required', 'category'=>'required', 'capacity'=>'required', 'instructor'=>'required']);
+            $event->validate($request,[ 'title'=>'required', 'description'=>'required', 'date'=>'required', 'type'=>'required', 'category'=>'required', 'capacity'=>'required', 'instructor'=>'required']);
      
             Event::find($id)->update($request->all());
             return redirect()->route('home')->with('actualizado');

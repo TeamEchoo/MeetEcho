@@ -37,6 +37,8 @@ Route::post('/events/{id}', [App\Http\Controllers\EventController::class, 'subsc
 
 Route::edit('/events/{id}', [App\Http\Controllers\EventController::class, 'edit'])->middleware('checkAdmin')->name('eventsEdit');
 
+Route::update('/events/{id}', [App\Http\Controllers\EventController::class, 'update'])->middleware('checkAdmin')->name('eventsUpdate');
+
 Route::post('/profile/{id}', [App\Http\Controllers\EventController::class, 'profile']);
 
 
