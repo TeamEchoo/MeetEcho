@@ -35,3 +35,6 @@ Route::delete('/events/{id}', [App\Http\Controllers\EventController::class, 'des
 
 Route::post('/profile/{id}', [App\Http\Controllers\EventController::class, 'profile']);
 
+Route::post('/createEvent', [App\Http\Controllers\EventController::class, 'store'])->name('events.store');
+
+
