@@ -31,4 +31,7 @@ Route::get('/events/{id}', [App\Http\Controllers\EventController::class, 'showEv
 
 Route::post('/events/{id}', [App\Http\Controllers\EventController::class, 'subscribe']);
 
+Route::delete('/events/{id}', [App\Http\Controllers\EventController::class, 'destroy'])->middleware('checkAdmin')->name('eventsDelete');
+
 Route::post('/profile/{id}', [App\Http\Controllers\EventController::class, 'profile']);
+
