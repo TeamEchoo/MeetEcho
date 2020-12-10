@@ -33,5 +33,7 @@ Route::post('/events/{id}', [App\Http\Controllers\EventController::class, 'subsc
 
 Route::delete('/events/{id}', [App\Http\Controllers\EventController::class, 'destroy'])->middleware('checkAdmin')->name('eventsDelete');
 
-Route::post('/profile/{id}', [App\Http\Controllers\EventController::class, 'profile']);
+Route::get('/profile/{id}', [App\Http\Controllers\UserController::class, 'profile']);
+
+Route::get('/admin', [App\Http\Controllers\EventController::class, 'adminIndex'])->middleware('checkAdmin')->name('admin');
 

@@ -18,8 +18,13 @@ class EventController extends Controller
     public function index()
     {
         $eventList = Event::all();
-
         return view('events.events', ['eventList' => $eventList]);
+    }
+
+    public function adminIndex()
+    {
+        $eventList = Event::all();
+        return view('admin.adminPage', ['eventList' => $eventList]);
     }
 
     public function showEvent($id)
@@ -29,7 +34,7 @@ class EventController extends Controller
         return view('events.eventDetail', ['event' => $event]);
     }
 
-   
+
 
     public function subscribe(Request $request, $id)
     {
@@ -42,7 +47,7 @@ class EventController extends Controller
 
         $user = $request->user();
         $user->events()->attach($id);
-        return view('./users.profile', ['user' => $user]);        
+        return view('users.profile', ['user' => $user]);
     }
 
 
@@ -105,6 +110,8 @@ class EventController extends Controller
     {
         $event = Event::find($id);
         $event->delete();
-        redirect(route('home'));
+        $eventList = Event::all();
+        
+        return view('admin.adminPage', ['eventList' => $eventList]);
     }
 }
