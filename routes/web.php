@@ -35,7 +35,7 @@ Route::get('/events/{id}', [App\Http\Controllers\EventController::class, 'showEv
 
 Route::post('/events/{id}', [App\Http\Controllers\EventController::class, 'subscribe']);
 
-Route::edit('/events/{id}', [App\Http\Controllers\EventController::class, 'edit'])->name('eventsEdit');
+Route::edit('/events/{id}', [App\Http\Controllers\EventController::class, 'edit'])->middleware('checkAdmin')->name('eventsEdit');
 
 Route::post('/profile/{id}', [App\Http\Controllers\EventController::class, 'profile']);
 
