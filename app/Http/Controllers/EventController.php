@@ -53,6 +53,7 @@ class EventController extends Controller
 
     public function create()
     {
+        return view('CreateEvents');
     }
 
     /**
@@ -63,7 +64,21 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $event = Event::create([
+            'title'         => $request->title,
+            'description'   => $request->description,
+            'date'          => $request->date,
+            'type'          => $request->type,
+            'category'      => $request->category,
+            'capacity'      => $request->capacity,
+            'instructor'    => $request->instructor,
+            'link'          => $request->link,
+            // 'location'    => $request->location
+            // 'highlighted'   => $request->highlighted
+        ]);
+
+
+        return back();
     }
 
     /**
@@ -83,9 +98,12 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(Event $event)
+    public function edit(Event $event,$id)
     {
-        //
+        $event = Event::find($id);
+        $event->edit();
+        redirect(route('home'));
+  
     }
 
     /**
@@ -95,9 +113,12 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
+    public function update(Request $request, Event $event , $id)
     {
-        //
+            $event->validate($request,[ 'title'=>'required', 'description'=>'required', 'date'=>'required', 'type'=>'required', 'category'=>'required', 'capacity'=>'required', 'instructor'=>'required']);
+     
+            Event::find($id)->update($request->all());
+            return redirect()->route('home')->with('actualizado');
     }
 
     /**
