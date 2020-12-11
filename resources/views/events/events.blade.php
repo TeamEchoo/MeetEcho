@@ -4,7 +4,7 @@
 
   <section id="carousel" class="col-md-8">
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
+      <ol id="carousel-indicators" class="carousel-indicators">
         <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
         <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
@@ -13,8 +13,8 @@
         @foreach($eventList as $event)
         @if($event->highlighted)
         <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-          <!-- <img src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ" class="d-block w-100" alt="..."> -->
-          <img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTWoexfzoEpVYGD6LswveEBN18F_rKmR-8gluFtO29XoPhAVcPtu-0EzgsEfDC3xFghMrETTOBPA88NRyLwKMs" class="d-block w-100" alt="photo of event">
+           <img src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ" class="d-block w-100" alt="...">
+          <!-- <img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTWoexfzoEpVYGD6LswveEBN18F_rKmR-8gluFtO29XoPhAVcPtu-0EzgsEfDC3xFghMrETTOBPA88NRyLwKMs" class="d-block w-100" alt="photo of event"> -->
           <div id="carouselback" class="carousel-caption d-md-block">
             <h2>{{$event->title}}</h2>
             <h2>{{$event->date}}</h2>
