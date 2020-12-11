@@ -51,13 +51,13 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Categories <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{route('admin')}}">Admin<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Calendar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/CreateEvents">New Event</a>
+                            <a class="nav-link" href="{{route('events')}}">Events</a>
                         </li>
                         <!-- Authentication Links -->
                         @guest

@@ -43,7 +43,7 @@
       <div class="card-body">
         <h2 class="card-text">{{$event->title}}</h2>
         <p class="card-text">{{$event->description}}</p>
-        <a href="{{route('events')}}/{{$event->id}}" class="btn btn-primary">Details</a>
+        <a href="{{route('eventDetails', $event->id)}}" class="btn btn-primary">Details</a>
       </div>
     </div>
     @endif
