@@ -1,0 +1,21 @@
+#admin-list {
+    padding-top: 40px;
+}
+
+#admin-list-table {
+    background-color: $light-color;
+}
+#actions {
+    display: flex;
+    flex-direction: row;
+}
+.icon-button {
+    background-color: transparent;
+    color: $black;
+    border: none;
+}
+
+.icon-button:hover {
+    color: $purple;
+    transform: scale(1.5);
+}

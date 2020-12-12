@@ -19,12 +19,11 @@ class UserController extends Controller
         //
     }
 
-    public function profile()
+    public function profile(Request $request)
     {
-        $id = Auth::id();
-        $user = User::find($id);
-        return view('users.profile', ['profile' => $user]);
-        
+        $user = $request->user();
+        // $id = User::find($user);
+        return view('users.profile', ['user' => $user]);
     }
 
     /**
