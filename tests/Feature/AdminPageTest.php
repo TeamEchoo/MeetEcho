@@ -56,4 +56,22 @@ class adminPageTest extends TestCase
             ->assertViewIs('admin.adminEventDetail')
             ->assertViewHas('event');
     }
+    public function test_adminUser_can_change_highlighted_status_on_specific_Event()
+    {
+        $userAdmin = User::create([
+            'name' => 'vanessa',
+            'email' => 'van@ff.org',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'is_admin' => true,
+            'remember_token' => Str::random(10)
+        ]);
+
+        $event = Event::factory()->create();
+
+        $this->actingAs($userAdmin)->post('admin/1/highlighted');
+
+        $response = Event::find($event->id)->highlighted;
+
+        $this->assertEquals("1", $response);
+    }
 }

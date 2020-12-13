@@ -42,6 +42,8 @@ Route::get('/CreateEvents', [App\Http\Controllers\EventController::class, 'creat
 
 Route::delete('/admin/{id}', [App\Http\Controllers\EventController::class, 'destroy'])->middleware('checkAdmin')->name('eventsDelete');
 
+Route::post('admin/{id}/highlighted', [App\Http\Controllers\EventController::class, 'changeHighlighted'])->middleware('checkAdmin')->name('changeHighlighted');
+
 Route::get('/admin/{id}', [App\Http\Controllers\EventController::class, 'adminShowEvent'])->middleware('checkAdmin')->name('adminEventDetail');
 
 // Route::post('/events/{id}', [App\Http\Controllers\EventController::class, 'edit'])->middleware('checkAdmin')->name('eventsEdit');
