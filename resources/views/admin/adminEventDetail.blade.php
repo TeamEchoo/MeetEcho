@@ -48,7 +48,7 @@
     </div>
 
     <div id="admin-event-actions">
-        <a href="" class="btn btn-primary">
+        <a href="{{route('eventsEdit', $event->id)}}" class="btn btn-primary">
             Edit
         </a>
         <form action="{{route('eventsDelete', $event->id)}}" method="POST">

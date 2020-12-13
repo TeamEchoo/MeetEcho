@@ -111,8 +111,7 @@ class EventController extends Controller
     public function edit(Event $event, $id)
     {
         $event = Event::find($id);
-        $event->edit();
-        redirect(route('home'));
+        return view('eventsEdit', ['event' => $event]);
     }
 
     /**
