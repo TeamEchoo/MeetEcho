@@ -515,8 +515,8 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\ismae\Documents\GitHub\MeetEcho\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\ismae\Documents\GitHub\MeetEcho\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/vanessa/web-projects/factoriaF5/echoTeam/MeetEcho/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/vanessa/web-projects/factoriaF5/echoTeam/MeetEcho/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
