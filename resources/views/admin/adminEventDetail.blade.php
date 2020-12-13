@@ -31,17 +31,24 @@
         @endforeach
     </ul>
     <div class="row justify-content-start">
-        <h4 class="col">Highlighted</h4>
-        @if($event->highlighted)
-        <p class="col">Yes</p>
-        @else
-        <p class="col">No</p>
-        @endif
+        <h4 class="col">Event Highlighted?</h4>
+        <form action="{{route('changeHighlighted', $event->id)}}" method="POST">
+            @csrf
+            @if($event->highlighted)
+            <button type="submit" class="btn btn-success">
+                Yes
+            </button>
+            @else
+            <button type="submit" class="btn btn-danger">
+                No
+            </button>
+            @endif
+        </form>
 
     </div>
 
     <div id="admin-event-actions">
-        <a href="" class="btn btn-primary">
+        <a href="{{route('eventsEdit', $event->id)}}" class="btn btn-primary">
             Edit
         </a>
         <form action="{{route('eventsDelete', $event->id)}}" method="POST">
@@ -54,4 +61,5 @@
 
     </div>
 </div>
+
 @endsection
