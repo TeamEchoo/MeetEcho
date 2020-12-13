@@ -1,0 +1,27 @@
+#admin-details {
+    padding: 10px 10px 5px;
+    max-width: 80%;
+    margin: 0 auto 30px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px $light-color;
+    color: $light-color;
+}
+
+#admin-details h2 {
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+}
+#admin-details h3 {
+    text-transform: uppercase;
+}
+
+#admin-event-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#admin-event-actions a {
+    margin-right: 15px;
+}

@@ -9,13 +9,4 @@
     display: flex;
     flex-direction: row;
 }
-.icon-button {
-    background-color: transparent;
-    color: $black;
-    border: none;
-}
 
-.icon-button:hover {
-    color: $purple;
-    transform: scale(1.5);
-}
