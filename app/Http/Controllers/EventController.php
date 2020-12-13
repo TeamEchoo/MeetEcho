@@ -81,6 +81,13 @@ class EventController extends Controller
         return back();
     }
 
+    public function adminShowEvent($id)
+    {
+
+        $event = Event::find($id);
+        return view('admin.adminEventDetail', ['event' => $event]);
+    }
+
     /**
      * Display the specified resource.
      *
