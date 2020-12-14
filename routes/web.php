@@ -23,8 +23,9 @@ Route::get('/', function () {
 //     return view('CreateEvents');
 // })->middleware();
 
+Route::get('/CreateEvents', [App\Http\Controllers\EventController::class, 'create'])->middleware('checkAdmin')->name('events.create');
 
-Route::post('/CreateEvents', [App\Http\Controllers\EventController::class, 'store'])->name('events.store');
+Route::post('/CreateEvents', [App\Http\Controllers\EventController::class, 'store'])->middleware('checkAdmin')->name('events.store');
 
 Auth::routes();
 
