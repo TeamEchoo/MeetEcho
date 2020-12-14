@@ -6,6 +6,8 @@ use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\User;
+use App\Mail\SubscribeEventMailable;
+use Illuminate\Support\Facades\Mail;
 
 
 class EventController extends Controller
@@ -47,8 +49,15 @@ class EventController extends Controller
 
         $user = $request->user();
         $user->events()->attach($id);
+        $usermail = $user->email;
+        $correo = new SubscribeEventMailable($request->all());
+        Mail::to($usermail)->send($correo);
+
         return view('users.profile', ['user' => $user]);
     }
+        
+        
+
 
 
     public function create()
@@ -145,4 +154,6 @@ class EventController extends Controller
 
         return view('admin.adminPage', ['eventList' => $eventList]);
     }
+
+   
 }
