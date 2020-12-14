@@ -49,6 +49,6 @@ Route::get('/admin/{id}', [App\Http\Controllers\EventController::class, 'adminSh
 
 Route::get('/admin/update/{id}', [App\Http\Controllers\EventController::class, 'edit'])->middleware('checkAdmin')->name('eventsEdit');
 
-// Route::put('/admin/{id}', [App\Http\Controllers\EventController::class, 'update'])->middleware('checkAdmin')->name('eventsUpdate');
+Route::put('/admin/{id}', [App\Http\Controllers\EventController::class, 'update'])->middleware('checkAdmin')->name('eventsUpdate');
 
 Route::post('/profile/{id}', [App\Http\Controllers\EventController::class, 'profile']);

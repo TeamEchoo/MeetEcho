@@ -3,7 +3,7 @@
 <div id="createEvent" class="container">
     <h1>Create your Amazing Event</h1>
 
-    <form action="{{route('eventsUpdate', $event->id)}}" id="createEventForm" method="POST">
+    <form action="{{ route('eventsUpdate', $event->id) }}" id="createEventForm" method="POST">
         @method('PUT')
         @csrf
         <div class="mb-3">
