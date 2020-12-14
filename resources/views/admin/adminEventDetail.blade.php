@@ -1,25 +1,26 @@
 @extends('layouts.app')
 @section('content')
-<div id="admin-details" class="container-fluid">
+<h2 class="title">Admin Page</h2>
+<div class="admin-details container-fluid">
     <h2>
         {{$event->title}}
     </h2>
     <h4>Description</h4>
     <p>{{$event->description}}</p>
     <div class="row justify-content-start">
-        <h4 class="col">Instructor</h4>
+        <h4 class="col-5">Instructor</h4>
         <p class="col">{{$event->instructor}}</p>
     </div>
     <div class="row justify-content-start">
-        <h4 class="col">Capacity</h4>
+        <h4 class="col-5">Capacity</h4>
         <p class="col">{{$event->capacity}}</p>
     </div>
     <div class="row justify-content-start">
-        <h4 class="col">Type</h4>
+        <h4 class="col-5">Type</h4>
         <p class="col">{{$event->type}}</p>
     </div>
     <div class="row justify-content-start">
-        <h4 class="col">Category</h4>
+        <h4 class="col-5">Category</h4>
         <p class="col">{{$event->category}}</p>
     </div>
     <h4>Attendees</h4>
@@ -30,24 +31,23 @@
         </li>
         @endforeach
     </ul>
-    <div class="row justify-content-start">
-        <h4 class="col">Event Highlighted?</h4>
+    <div class="admin-details-highlighted row justify-content-start">
+        <h4 class="col-5">Event Highlighted?</h4>
         <form action="{{route('changeHighlighted', $event->id)}}" method="POST">
             @csrf
-            @if($event->highlighted)
-            <button type="submit" class="btn btn-success">
-                Yes
+            <button class="col-sm" type="submit">
+                @if($event->highlighted)
+                <i id="star-fill" class="fas fa-star"></i>
+                @else
+                <i id="star" class="far fa-star"></i>
+                @endif
             </button>
-            @else
-            <button type="submit" class="btn btn-danger">
-                No
-            </button>
-            @endif
+
         </form>
 
     </div>
 
-    <div id="admin-event-actions">
+    <div class="admin-details-actions">
         <a href="{{route('eventsEdit', $event->id)}}" class="btn btn-primary">
             Edit
         </a>
