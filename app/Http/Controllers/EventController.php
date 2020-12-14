@@ -121,12 +121,14 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event, $id)
+    public function update(Request $request, $id)
     {
-        $event->validate($request, ['title' => 'required', 'description' => 'required', 'date' => 'required', 'type' => 'required', 'category' => 'required', 'capacity' => 'required', 'instructor' => 'required']);
+
+        $request->validate(['title' => 'required', 'description' => 'required', 'date' => 'required', 'type' => 'required', 'category' => 'required', 'capacity' => 'required', 'instructor' => 'required']);
 
         Event::find($id)->update($request->all());
-        return redirect()->route('home')->with('actualizado');
+
+        return back();
     }
 
     /**
