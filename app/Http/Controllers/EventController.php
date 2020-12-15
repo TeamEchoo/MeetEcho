@@ -46,7 +46,7 @@ class EventController extends Controller
         }
 
         $user = $request->user();
-        if($user->events()->find($id)){
+        if ($user->events()->find($id)) {
             return back();
         }
         $user->events()->attach($id);
@@ -57,8 +57,8 @@ class EventController extends Controller
 
         return view('users.profile', ['user' => $user]);
     }
-        
-        
+
+
 
 
 
@@ -75,19 +75,18 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $event = Event::create([
-            'title'         => $request->title,
-            'description'   => $request->description,
-            'date'          => $request->date,
-            'type'          => $request->type,
-            'category'      => $request->category,
-            'capacity'      => $request->capacity,
-            'instructor'    => $request->instructor,
-            'link'          => $request->link,
-            // 'location'    => $request->location
-            // 'highlighted'   => $request->highlighted
-        ]);
 
+        $validator = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'date' => 'required|date|after:now',
+            'type' => 'required',
+            'category' => 'required',
+            'capacity' => 'required|gte:0',
+            'instructor' => 'required',
+            'link' => 'required|url',
+        ]);
+        Event::create($request->all());
 
         return back();
     }
@@ -135,7 +134,16 @@ class EventController extends Controller
     public function update(Request $request, $id)
     {
 
-        $request->validate(['title' => 'required', 'description' => 'required', 'date' => 'required', 'type' => 'required', 'category' => 'required', 'capacity' => 'required', 'instructor' => 'required']);
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'date' => 'required|date|after:now',
+            'type' => 'required',
+            'category' => 'required',
+            'capacity' => 'required|gte:0',
+            'instructor' => 'required',
+            'link' => 'required|url',
+        ]);
 
         Event::find($id)->update($request->all());
 
@@ -156,6 +164,4 @@ class EventController extends Controller
 
         return view('admin.adminPage', ['eventList' => $eventList]);
     }
-
-   
 }

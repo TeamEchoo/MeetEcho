@@ -1,11 +1,12 @@
 @extends('layouts.app')
 @section('content')
-<div class="container-fluid">
-    <h2>Admin Page</h2>
+<div class="admin container-fluid">
+    <h2>List of All events</h2>
 
-    <div id="admin-list" class="table-responsive-sm">
+    <a href="{{route('events.create')}}" class="admin-create-btn btn btn-primary">New Event</a>
+    <div class="admin-list table-responsive-sm">
 
-        <table id="admin-list-table" class="table table-hover">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -21,7 +22,7 @@
                     <td>{{$event->title}}</td>
                     <td>{{$event->date}}</td>
                     <td>
-                        <a href="{{route('adminEventDetail', $event->id)}}" class="btn btn-primary">Details</a>
+                        <a href="{{route('adminEventDetail', $event->id)}}" class="admin-list-btn btn btn-primary">Details</a>
                     </td>
                 </tr>
 
@@ -30,7 +31,7 @@
         </table>
     </div>
 
-    <a href="{{route('events.create')}}" class="btn btn-primary">New Event</a>
+   
 
 </div>
 

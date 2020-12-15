@@ -25,7 +25,7 @@ class CreateEventsTable extends Migration
             $table->string("instructor");
             $table->string("link");
             $table->boolean("highlighted")->default(false);
-            $table->boolean('timedOut');
+            $table->boolean('timedOut')->default(false);
         });
     }
 

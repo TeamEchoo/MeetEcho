@@ -10990,21 +10990,26 @@ a.text-dark:focus {
   justify-content: space-evenly;
 }
 
-h1 {
-  font-size: 20px;
-  text-align: center;
-  text-shadow: 1px 1px grey;
-}
-
-#createEvent {
+.event-form {
   background-color: #ede5d3;
   max-width: 80%;
   border-radius: 5px;
   padding: 20px;
 }
 
+.event-form h2 {
+  font-size: 20px;
+  text-align: center;
+  text-shadow: 1px 1px grey;
+}
+
+.event-form i {
+  font-size: 20px;
+  color: #3d3d3d;
+}
+
 @media (min-width: 900px) {
-  #createEvent {
+  .event-form {
     max-width: 800px;
   }
 }
@@ -11014,17 +11019,30 @@ h1 {
   font-weight: bold;
 }
 
-#admin-list {
+.admin h2 {
+  color: #ede5d3;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.admin-create-btn {
+  background-color: #f6993f;
+  color: #3d3d3d;
+  border: none;
+}
+
+.admin-list {
   padding-top: 40px;
 }
 
-#admin-list-table {
-  background-color: #ede5d3;
+.admin-list-btn {
+  background-color: #3d3d3d;
+  border: none;
+  color: #f6993f;
 }
 
-#actions {
-  display: flex;
-  flex-direction: row;
+.admin table {
+  background-color: #ede5d3;
 }
 
 .title {
