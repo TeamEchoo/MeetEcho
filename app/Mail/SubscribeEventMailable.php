@@ -10,7 +10,7 @@ use Illuminate\Queue\SerializesModels;
 class SubscribeEventMailable extends Mailable
 {
     public $subject = "!Se ha apuntado al evento con éxito!";
-
+    public $event;
 
     use Queueable, SerializesModels;
 
@@ -19,9 +19,9 @@ class SubscribeEventMailable extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($event)
     {
-        //
+        $this->event = $event;
     }
 
     /**

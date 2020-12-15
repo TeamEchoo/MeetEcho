@@ -52,7 +52,8 @@ class EventController extends Controller
         }
         $user->events()->attach($id);
         $usermail = $user->email;
-        $correo = new SubscribeEventMailable($request->all());
+        $event = Event::find($id);
+        $correo = new SubscribeEventMailable($event);
         Mail::to($usermail)->send($correo);
 
         return view('users.profile', ['user' => $user]);
