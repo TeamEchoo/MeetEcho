@@ -11048,16 +11048,30 @@ h1 {
 }
 
 .event-details img {
+  margin: 0 20px 20px 0;
   max-width: 50%;
   border-radius: 5px;
 }
 
+.event-details figure h3 {
+  color: #f6993f;
+}
+
+.event-details h5 {
+  padding: 5px;
+  border-radius: 5px;
+  color: #f6993f;
+}
+
 .event-details-info {
-  margin: 20px;
-  max-width: 50%;
+  margin: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+.event-details-info h3 {
+  color: #f6993f;
 }
 
 .event-details-info > * {
@@ -11069,5 +11083,20 @@ h1 {
   padding: 5px;
   border-radius: 5px;
   background-color: #f6993f;
+}
+
+@media (min-width: 800px) {
+  .event-details {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto;
+    align-items: flex-start;
+  }
+
+  .event-details img {
+    grid-column: 1/1;
+    max-width: 100%;
+    border-radius: 5px;
+  }
 }
 

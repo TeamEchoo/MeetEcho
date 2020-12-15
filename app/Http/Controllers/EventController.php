@@ -35,7 +35,6 @@ class EventController extends Controller
     }
 
 
-
     public function subscribe(Request $request, $id)
     {
 

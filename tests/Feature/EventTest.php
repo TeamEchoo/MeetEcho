@@ -37,7 +37,7 @@ class EventTest extends TestCase
 
     public function test_user_can_acess_and_view_a_specific_event_detail()
     {
-        $event = Event::factory(1)->create();
+        Event::factory()->create();
         $response = $this->get('/events/1');
 
         $response->assertStatus(200)

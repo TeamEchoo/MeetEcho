@@ -4,21 +4,28 @@
 
 <div class="event-details container-md">
 
-   <img src="https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/gallery/5ab105745cafe8eb5eadc7ae/myanmar.jpg" id="event-details-img" alt="...">
+   <figure class="figure">
+      <img src="https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/gallery/5ab105745cafe8eb5eadc7ae/myanmar.jpg" id="event-details-img" alt="...">
+      <h3> {{$event->date}}</h3>
+   </figure>
 
    <div class="event-details-info">
-      <h2> {{$event->title}}</h2>
+      <h2> {{$event->title}} </h2>
+      <h5> - {{$event->type}} - </h5>
       <p> {{$event->description}}</p>
+      @if(Auth::user() && Auth::user()->events()->find($event->id))
+         <h5>Attending</h5>
+      @else
       <form action="{{ route('eventAdd', $event->id) }}" method="POST">
          @csrf
          <button class="btn btn-primary" type="submit">Attend</button>
       </form>
+      @endif
    </div>
    <div class="event-details-info">
-      <h3> {{$event->date}}</h3>
-      <h3> Instructor: {{$event->instructor}}</h3>
-      <h3> {{$event->type}}</h3>
-      <p class="event-tag"> {{$event->category}}</p>
+      <h4>Instructor: {{$event->instructor}}</h4>
+
+      <h4>Subject: {{$event->category}}</h4>
    </div>
 </div>
 @endsection
