@@ -46,8 +46,10 @@ class EventController extends Controller
             return view('auth.register');
         }
 
-
         $user = $request->user();
+        if($user->events()->find($id)){
+            return back();
+        }
         $user->events()->attach($id);
         $usermail = $user->email;
         $correo = new SubscribeEventMailable($request->all());

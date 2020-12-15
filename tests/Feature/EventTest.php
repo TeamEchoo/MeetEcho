@@ -65,15 +65,5 @@ class EventTest extends TestCase
         $response->assertStatus(200)
             ->assertViewIs('users.profile');
     }
-    
-    public function test_mail_is_sent_when_regiteredUser_register_in_an_event()
-    {
-        $this->actingAs(User::factory()->create());
-        $event = Event::factory(1)->create();
 
-        $response = $this->post('/events/1');
-
-        $response->assertStatus(200)
-            ->assertViewIs('users.profile');
-    }
 }

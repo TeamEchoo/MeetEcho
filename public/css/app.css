@@ -10963,7 +10963,7 @@ h1 {
 }
 
 #createEvent {
-  background-color: #fbfbfb;
+  background-color: #ede5d3;
   max-width: 80%;
   border-radius: 5px;
   padding: 20px;
@@ -10985,7 +10985,7 @@ h1 {
 }
 
 #admin-list-table {
-  background-color: #fbfbfb;
+  background-color: #ede5d3;
 }
 
 #actions {
@@ -10993,26 +10993,43 @@ h1 {
   flex-direction: row;
 }
 
-#admin-details {
+.title {
+  margin-bottom: 50px;
+  text-align: center;
+  color: #ede5d3;
+}
+
+.admin-details {
   padding: 10px 10px 5px;
   max-width: 80%;
   margin: 0 auto 30px;
   border-radius: 5px;
-  box-shadow: 1px 1px 5px #fbfbfb;
-  color: #fbfbfb;
+  box-shadow: 1px 1px 5px #ede5d3;
+  color: #ede5d3;
 }
 
-#admin-details h2 {
+.admin-details h2 {
   margin-bottom: 30px;
   text-align: center;
   text-transform: uppercase;
 }
 
-#admin-details h3 {
+.admin-details h3 {
   text-transform: uppercase;
 }
 
-#admin-event-actions {
+.admin-details-highlighted button {
+  justify-self: start;
+  background-color: transparent;
+  border: none;
+}
+
+.admin-details-highlighted i {
+  font-size: 20px;
+  color: #ffed4a;
+}
+
+.admin-details-actions {
   padding-top: 60px;
   margin-bottom: 20px;
   display: flex;
@@ -11020,7 +11037,37 @@ h1 {
   justify-content: flex-start;
 }
 
-#admin-event-actions a {
+.admin-details-actions a {
   margin-right: 15px;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.event-details img {
+  max-width: 50%;
+  border-radius: 5px;
+}
+
+.event-details-info {
+  margin: 20px;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.event-details-info > * {
+  color: #ede5d3;
+}
+
+.event-details .event-tag {
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #f6993f;
 }
 
