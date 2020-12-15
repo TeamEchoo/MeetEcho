@@ -1,12 +1,27 @@
-#admin-list {
-    padding-top: 40px;
-}
+.admin {
+    h2 {
+        color: $light-color;
+        text-align: center;
+        text-transform: uppercase;
+    }
 
-#admin-list-table {
-    background-color: $light-color;
-}
-#actions {
-    display: flex;
-    flex-direction: row;
-}
+    &-create-btn {
+        background-color: $orange;
+        color: $dark-color;
+        border: none;
+    }
 
+    &-list {
+        padding-top: 40px;
+
+        &-btn {
+            background-color: $dark-color;
+            border: none;
+            color: $orange;
+        }
+    }
+
+    table {
+        background-color: $light-color;
+    }
+}

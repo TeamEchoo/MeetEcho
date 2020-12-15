@@ -29,21 +29,21 @@ class StoreEventTest extends TestCase
 
         $this->actingAs($userAdmin);
         $response = $this->get('/CreateEvents')
-        ->assertStatus(200)
-        ->assertViewIs('CreateEvents');
+            ->assertStatus(200)
+            ->assertViewIs('CreateEvents');
     }
 
     public function test_adminUser_can_create_and_store_event()
     {
         $data = [
-                'title'         => "prueba",
-                'description'   => "hola",
-                'date'          => "2121-12-11",
-                'type'          => "masterclass",
-                'category'      => "workshop",
-                'capacity'      => 12,
-                'instructor'    => "lorena",
-                'link'          => "link"
+            'title'         => "prueba",
+            'description'   => "hola",
+            'date'          => "2121-12-11",
+            'type'          => "masterclass",
+            'category'      => "workshop",
+            'capacity'      => 12,
+            'instructor'    => "lorena",
+            'link'          => "https://us02web.zoom.us/j/6120990146?pwd=SzFtT0ZoUFhTU2gyTHNjMDY0MWE0UT09#success"
         ];
 
         $userAdmin = User::create([
@@ -54,23 +54,23 @@ class StoreEventTest extends TestCase
         ]);
 
         $response = $this->actingAs($userAdmin)
-        ->post('/CreateEvents', $data)
-        ->assertStatus(302);
+            ->post('/CreateEvents', $data)
+            ->assertStatus(302);
         $this->assertDatabaseCount('events', 1);
     }
 
     public function test_User_cant_create_and_store_event()
     {
-   
+
         $data = [
-                'title'         => "prueba",
-                'description'   => "hola",
-                'date'          => "2121-12-11",
-                'type'          => "masterclass",
-                'category'      => "workshop",
-                'capacity'      => 12,
-                'instructor'    => "lorena",
-                'link'          => "link"
+            'title'         => "prueba",
+            'description'   => "hola",
+            'date'          => "2121-12-11",
+            'type'          => "masterclass",
+            'category'      => "workshop",
+            'capacity'      => 12,
+            'instructor'    => "lorena",
+            'link'          => "link"
         ];
 
         $user = User::create([
@@ -81,7 +81,7 @@ class StoreEventTest extends TestCase
         ]);
 
         $response = $this->actingAs($user)
-        ->post('/CreateEvents', $data);
+            ->post('/CreateEvents', $data);
         $this->assertDatabaseCount('events', 0);
     }
 }

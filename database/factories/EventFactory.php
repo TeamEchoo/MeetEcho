@@ -30,8 +30,6 @@ class EventFactory extends Factory
             "capacity" => 25,
             "instructor" => $this->faker->name,
             "link" => "http://ecomeet.com/event1",  
-            "timedOut" => false,
-
         ];
     }
 }
