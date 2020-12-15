@@ -2,13 +2,18 @@
 
 namespace Tests\Feature;
 
+use App\Mail\SubscribeEventMailable;
 use Faker\Factory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Bus\Queueable;
+use Illuminate\Queue\SerializesModels;
 use Tests\TestCase;
 use App\Models\Event;
 use App\Models\User;
+use Illuminate\Support\Str;
+use Illuminate\Support\Testing\Fakes\MailFake;
 
 class EventTest extends TestCase
 {
@@ -66,4 +71,33 @@ class EventTest extends TestCase
             ->assertViewIs('users.profile');
     }
 
+    
+    public function test_when_RegisterUser_enroll_in_specific_event_an_email_is_sent()
+   {    
+        //given
+        Mail::fake();
+        $userAdmin = User::create([
+            'name' => 'vanessa',
+            'email' => 'van@ff.org',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'is_admin' => true,
+            'remember_token' => Str::random(10)
+        ]);
+        $event = Event::factory()->create();
+        $this->actingAs($userAdmin);
+        
+        //when
+        $this->post('/events/1');
+        
+        
+        //then
+        Mail::assertSent(SubscribeEventMailable::class, function ($mail) use ($userAdmin) {
+            
+            return $mail->hasTo($userAdmin->email);
+             
+        });
+    }
+    
 }
+        
+        
