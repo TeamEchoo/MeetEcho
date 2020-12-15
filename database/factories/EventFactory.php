@@ -24,12 +24,13 @@ class EventFactory extends Factory
         return [
             "title" => "This Awesome Event",
             "description" => $this->faker->text,
-            "date" => $this->faker->date(),
+            "date" => $this->faker->dateTimeBetween($startDate = 'now', $endDate = '+3 years', $timezone = null),
             "type" => $this->faker->word,
             "category" => $this->faker->word,
             "capacity" => 25,
             "instructor" => $this->faker->name,
             "link" => "http://ecomeet.com/event1",  
+            "timedOut" => false,
 
         ];
     }
