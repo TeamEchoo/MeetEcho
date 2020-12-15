@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,3 +54,7 @@ Route::get('/admin/update/{id}', [App\Http\Controllers\EventController::class, '
 Route::put('/admin/{id}', [App\Http\Controllers\EventController::class, 'update'])->middleware('checkAdmin')->name('eventsUpdate');
 
 Route::post('/profile/{id}', [App\Http\Controllers\EventController::class, 'profile']);
+
+Route::get ('subscribeMail', [App\Http\Controllers\EventController::class, 'subscribeMail']);
+
+

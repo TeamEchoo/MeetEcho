@@ -66,15 +66,4 @@ class EventTest extends TestCase
             ->assertViewIs('users.profile');
     }
 
-    public function test_RegisterUser_cannot_enroll_in_a_event_twice()
-    {
-        $this->actingAs(User::factory()->create());
-        $event = Event::factory(1)->create();
-
-        $this->post('/events/1');
-
-        $response = $this->post('/events/1');
-
-        $response->assertStatus(302);
-    }
 }
