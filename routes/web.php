@@ -39,6 +39,8 @@ Route::post('/events/{id}', [App\Http\Controllers\EventController::class, 'subsc
 
 Route::get('/profile/{id}', [App\Http\Controllers\UserController::class, 'profile']);
 
+Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('userProfile');
+
 Route::get('/admin', [App\Http\Controllers\EventController::class, 'adminIndex'])->middleware('checkAdmin')->name('admin');
 
 Route::get('/CreateEvents', [App\Http\Controllers\EventController::class, 'create'])->middleware('checkAdmin')->name('events.create');
