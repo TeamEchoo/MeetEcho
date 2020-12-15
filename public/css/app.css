@@ -10915,11 +10915,19 @@ a.text-dark:focus {
   position: sticky;
   top: 0;
   z-index: 1030;
-  background-color: #faf6f0;
+  background-repeat: repeat-x;
+  background: url("https://i.ibb.co/7K8BhFR/Abstract-Circle-white-background-light-and-shadow-Vector.jpg");
+  background-image: url("https://i.ibb.co/7K8BhFR/Abstract-Circle-white-background-light-and-shadow-Vector.jpg");
 }
 
 #echoContainer {
   max-width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#carouselback {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .cardSection {
@@ -10930,24 +10938,50 @@ a.text-dark:focus {
   padding-top: 50px;
 }
 
-#carouselback {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
 #carouselInner {
   border-color: whitesmoke;
-  border: 50%;
-  border-radius: 5%;
-  height: 95%;
-  width: 100%;
+  border-radius: 100px;
 }
 
-#navTitle {
-  padding: 8px;
+.carousel .carousel-item {
+  height: 500px;
+  border: 50%;
+  border-radius: 5%;
+}
+
+.carousel-item img {
+  position: relative;
+  -o-object-fit: cover;
+     object-fit: cover;
+  top: 0;
+  left: 0;
+  min-height: 500px;
+}
+
+#img-responsive {
+  width: 100px;
+  -webkit-padding-after: 20px;
+          padding-block-end: 20px;
+  padding-top: 20px;
+  border-radius: 50%;
+}
+
+#padding {
+  padding-top: 1.5rem !important;
+}
+
+#footer {
+  background-color: #181715;
   text-align: center;
-  text-shadow: 1px 1px grey;
-  border: 5px solid #887171;
-  border-radius: 10px;
+}
+
+#footer p {
+  margin-bottom: 0%;
+}
+
+#navLogo {
+  width: 30%;
+  height: 30%;
 }
 
 #navList {

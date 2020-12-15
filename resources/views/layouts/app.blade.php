@@ -28,8 +28,8 @@
         <nav id="sticky" class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/events') }}">
-                    <div id="navTitle">
-                        <h1>ECHO MEET</h1>
+                    <div>
+                        <img id="navLogo" src="https://i.ibb.co/dMCNTvR/Logo-Meet-ECHO-grey.png" alt="Logo-Meet-ECHO-grey">
                     </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -48,11 +48,9 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="{{route('admin')}}">Admin<span class="sr-only">(current)</span></a>
                         </li>
+                        
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Calendar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('events')}}">Events</a>
+                            <a class="nav-link" href="{{route('events')}}">Home</a>
                         </li>
                         <!-- Authentication Links -->
                         @guest
@@ -90,7 +88,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main id="padding">
             @yield('content')
         </main>
     </div>

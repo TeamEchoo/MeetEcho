@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div id="echoContainer" class="row justify-content-center container">
-
+<div id="echoContainer" class="justify-content-center container">
   <section id="carousel" class="col-md-8">
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
       <ol id="carousel-indicators" class="carousel-indicators">
@@ -49,7 +48,10 @@
     @endif
     @endforeach
   </section>
-
-
 </div>
+
+<footer id="footer">
+              <img id="img-responsive" src="https://i.ibb.co/9cHVBJC/73825455.png" alt="73825455">
+              <p class="text-muted"> © 2020 By EchoTeam ♥️ </p>
+</footer>
 @endsection
