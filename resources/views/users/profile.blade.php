@@ -1,29 +1,38 @@
 @extends('layouts.app')
 @section('content')
 
-
-<h1>Profile Page</h1>
-
-<div class="container">
+<div class="profile container">
 
 
-    
-    <h3>Usuario: {{$user->name}}</h>
-    <h3>Email: {{$user->email}}</h3>
-    
+    <section class="profile-info">
+        <img src="https://loremflickr.com/100/100/faces" alt="">
+        <h2>{{$user->name}}</h2>
 
-        <h2 id="userEvents">EVENTOS A LOS QUE ESTAS INSCRITO:</h2>
-    
+    </section>
 
-    <ol class="list-group">
-        @foreach ($user->events as $event) 
-        
-            <li class="list-group-item">
-            {{$event->title}}
+    <section class="profile-events">
+
+        <h3>EVENTOS A LOS QUE ESTAS INSCRITO:</h3>
+
+        <ul>
+            @foreach ($user->events as $event)
+
+            <li class="profile-events-item">
+                <h4>
+                    {{$event->title}}
+
+                </h4>
+                <form action="{{route('eventUnsubscribe', $event->id)}}" method="POST">
+                    @method('DELETE')
+                    @csrf
+                    <button type="submit" class="btn btn-danger">
+                        Cancel
+                    </button>
+                </form>
             </li>
-        
-        @endforeach
-    </ol>
-</div>  
+            @endforeach
+        </ul>
+    </section>
+
+</div>
 @endsection;
-    
