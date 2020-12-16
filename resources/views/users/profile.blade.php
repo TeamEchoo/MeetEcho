@@ -22,7 +22,7 @@
                     {{$event->title}}
 
                 </h4>
-                <form action="{{route('eventUnsubscribe', $event->id)}}" method="POST">
+                <form action="{{route('unsubscribe', $event->id)}}" method="POST">
                     @method('DELETE')
                     @csrf
                     <button type="submit" class="btn btn-danger">
