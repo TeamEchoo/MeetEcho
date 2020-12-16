@@ -76,6 +76,31 @@ class EventTest extends TestCase
         ]);
     }
 
+    public function test_RegisterUser_cannot_enroll_in_a_full_event()
+    {
+        $this->actingAs(User::factory()->create());
+        Event::create([
+            'title'         => "prueba",
+            'description'   => "hola",
+            'date'          => "2121-12-11",
+            'type'          => "masterclass",
+            'category'      => "workshop",
+            'capacity'      => 0,
+            'instructor'    => "lorena",
+            'link'          => "https://us02web.zoom.us/j/6120990146?pwd=SzFtT0ZoUFhTU2gyTHNjMDY0MWE0UT09#success"
+        ]);
+
+        $response = $this->post('/events/1');
+
+        $response->assertStatus(200)
+            ->assertViewIs('users.profile');
+        
+        $this->assertDatabaseMissing('event_user', [
+            'event_id' => 1,
+            'user_id' => 1
+        ]);
+    }
+
     public function test_RegisterUser_can_cancel_enroll_in_specific_event()
     {
         $this->actingAs(User::factory()->create());
@@ -92,7 +117,6 @@ class EventTest extends TestCase
             ]);
     }
     
-
     
     public function test_when_RegisterUser_enroll_in_specific_event_an_email_is_sent()
    {    

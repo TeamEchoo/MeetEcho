@@ -49,7 +49,10 @@ class EventController extends Controller
         if ($user->events()->find($id)) {
             return back();
         }
-        $user->events()->attach($id);
+        $event = Event::find($id);
+        $event->addUser($user->id);
+         
+        
         $usermail = $user->email;
         $event = Event::find($id);
         $correo = new SubscribeEventMailable($event);
@@ -67,8 +70,7 @@ class EventController extends Controller
         }
 
         $user = $request->user();
-
-        $user->events()->detach($id);
+        Event::find($id)->removeUser($user->id);
 
         return view('users.profile', ['user' => $user]);
     }

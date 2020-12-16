@@ -18,16 +18,38 @@ class Event extends Model
         'capacity',
         'instructor',
         'link',
-        // 'register_users',
-        // 'highlighted',
-        // 'location'
-
-
+   
     ];
-
 
     public function users()
     {
         return $this->belongsToMany('App\Models\User', 'event_user', 'user_id', 'event_id');
+    }
+
+    private function getNumberOfPeople()
+    {
+        $users = ($this->users());
+        return $users->count();
+    }
+
+    public function isAvailable()
+    {
+        if ($this->getNumberOfPeople() + 1 <= $this->capacity) {
+            return true;
+        }
+        return false;
+    }
+
+    public function addUser($userId)
+    {
+        if ($this->isAvailable()) {
+           $this->users()->attach($userId);
+        }
+        return;
+    }
+
+    public function removeUser($userId)
+    {
+        $this->users()->detach($userId);
     }
 }
