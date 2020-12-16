@@ -56,8 +56,7 @@ class EventTest extends TestCase
 
         $response = $this->post('/events/1');
 
-        $response->assertStatus(200)
-            ->assertViewIs('auth.register');
+        $response->assertStatus(302);
     }
 
     public function test_RegisterUser_can_enroll_in_specific_event()

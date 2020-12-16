@@ -20,28 +20,21 @@ Route::get('/', function () {
 });
 
 
-// Route::get('/CreateEvents', function () {
-
-//     return view('CreateEvents');
-// })->middleware();
-
-
-
 Auth::routes();
 
 Route::get('/events', [App\Http\Controllers\EventController::class, 'index'])->name('events');
 
 Route::get('/events/{id}', [App\Http\Controllers\EventController::class, 'showEvent'])->name('eventDetails');
 
-Route::post('/events/{id}', [App\Http\Controllers\EventController::class, 'subscribe'])->name('eventAdd');
+Route::post('/events/{id}', [App\Http\Controllers\EventController::class, 'subscribe'])->middleware('auth')->name('eventAdd');
 
-Route::delete('/events/{id}', [App\Http\Controllers\EventController::class, 'unSubscribe'])->name('unsubscribe');
+Route::delete('/events/{id}', [App\Http\Controllers\EventController::class, 'unSubscribe'])->middleware('auth')->name('unsubscribe');
+
 
 Route::get('/profile/{id}', [App\Http\Controllers\UserController::class, 'profile']);
 
 Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('userProfile');
 
-Route::post('/profile/{id}', [App\Http\Controllers\EventController::class, 'profile']);
 
 Route::get('/admin', [App\Http\Controllers\EventController::class, 'adminIndex'])->middleware('checkAdmin')->name('admin');
 
