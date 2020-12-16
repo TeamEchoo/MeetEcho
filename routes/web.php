@@ -37,6 +37,8 @@ Route::get('/events/{id}', [App\Http\Controllers\EventController::class, 'showEv
 
 Route::post('/events/{id}', [App\Http\Controllers\EventController::class, 'subscribe'])->name('eventAdd');
 
+Route::delete('/events/{id}', [App\Http\Controllers\EventController::class, 'unSubscribe'])->name('eventUnsubscribe');
+
 Route::get('/profile/{id}', [App\Http\Controllers\UserController::class, 'profile']);
 
 Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('userProfile');

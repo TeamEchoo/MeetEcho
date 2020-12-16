@@ -58,9 +58,20 @@ class EventController extends Controller
         return view('users.profile', ['user' => $user]);
     }
 
+    public function unSubscribe(Request $request, $id)
+    {
 
+        if (!Auth::check()) {
 
+            return view('auth.register');
+        }
 
+        $user = $request->user();
+
+        $user->events()->detach($id);
+
+        return view('users.profile', ['user' => $user]);
+    }
 
     public function create()
     {
