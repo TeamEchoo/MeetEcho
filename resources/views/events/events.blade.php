@@ -12,7 +12,7 @@
         @foreach($eventList as $event)
         @if($event->highlighted)
         <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-           <img src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ" class="d-block w-100" alt="...">
+           <img src="https://loremflickr.com/320/240/computer?random={{mt_rand()}}" class="d-block w-100" alt="...">
           <!-- <img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTWoexfzoEpVYGD6LswveEBN18F_rKmR-8gluFtO29XoPhAVcPtu-0EzgsEfDC3xFghMrETTOBPA88NRyLwKMs" class="d-block w-100" alt="photo of event"> -->
           <div id="carouselback" class="carousel-caption d-md-block">
             <h2>{{$event->title}}</h2>
@@ -38,7 +38,7 @@
     @foreach($eventList as $event)
     @if(!$event->highlighted)
     <div id="card" class="card" style="width: 18rem;">
-      <img src="https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/gallery/5ab105745cafe8eb5eadc7ae/myanmar.jpg" class="card-img-top" alt="...">
+      <img src="https://loremflickr.com/320/240/computer?random={{mt_rand()}}" class="card-img-top" alt="...">
       <div class="card-body">
         <h2 class="card-text">{{$event->title}}</h2>
         <p class="card-text">{{$event->description}}</p>
