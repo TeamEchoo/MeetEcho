@@ -7,19 +7,19 @@ use Illuminate\Database\Seeder;
 
 class EventSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+    
+    
+ 
+
     public function run()
     {
-        //\App\Models\Event::factory(10)->create();
+        
+
         $event01 = new Event();
 
         $event01->title = "Como sobrevivir en Factoria F5";
         $event01->description = "Es el bootcamp mas duro del mundo, con unos instructores que te haran morder el polvo...sobreviviras?";
-        $event01->date = date(16/03/2021);
+        $event01->date = "16-03-2021";
         $event01->type = "Presencial";
         $event01->category = "Supervivencia";
         $event01->capacity = 24;
@@ -34,7 +34,7 @@ class EventSeeder extends Seeder
 
         $event02->title = "Como llegar a formar parte de Echo Team";
         $event02->description = "Todo el mundo quiere ser del mejor equipo, aprende como!";
-        $event02->date = date(16/03/2021);
+        $event02->date = "34-13-2022";
         $event02->type = "Presencial";
         $event02->category = "Superación Personal";
         $event02->capacity = 24;
@@ -48,8 +48,8 @@ class EventSeeder extends Seeder
         $event03 = new Event();
 
         $event03->title = "Entender el Polimorfismo";
-        $event03->description = "Curso avanzado de alritmos cánticos para lograr alguna cosa que no sirva para nada";
-        $event03->date = date(16/03/2021);
+        $event03->description = "Curso avanzado de algoritmos cuánticos para lograr algo";
+        $event03->date = "28-07-2026";
         $event03->type = "Presencial";
         $event03->category = "Programación avanzada";
         $event03->capacity = 24;
@@ -64,7 +64,7 @@ class EventSeeder extends Seeder
 
         $event04->title = "Ser papa y estudiar en Factoria";
         $event04->description = "Aprenderas a buscar tiempo dentro del propio tiempo, tiempo cuántico";
-        $event04->date = date(16/03/2021);
+        $event04->date = "12-12-2022";
         $event04->type = "Presencial";
         $event04->category = "Supervivencia";
         $event04->capacity = 24;
@@ -79,7 +79,7 @@ class EventSeeder extends Seeder
 
         $event05->title = "Las entregas de Simplon";
         $event05->description = "Aprenderas a enviar links a la primera, hay un secreto";
-        $event05->date = date(16/03/2021);
+        $event05->date = "05-05-2022";
         $event05->type = "Presencial";
         $event05->category = "Estudios";
         $event05->capacity = 24;
@@ -94,7 +94,7 @@ class EventSeeder extends Seeder
 
         $event06->title = "Presentar una Pildora";
         $event06->description = "Como aprender a sostener el silencio y las miradas perdidas mientras presento esta mierda de pildora que no entiendo ni yo...";
-        $event06->date = date(16/03/2021);
+        $event06->date = "06-08-2021";
         $event06->type = "Presencial";
         $event06->category = "Supervivencia";
         $event06->capacity = 24;
@@ -109,7 +109,7 @@ class EventSeeder extends Seeder
 
         $event07->title = "Rellenar eventos aleatorios";
         $event07->description = "El arte de inventarte chorradas según van llegando a tu mente";
-        $event07->date = date(16/03/2021);
+        $event07->date = "17-08-2021";
         $event07->type = "Presencial";
         $event07->category = "Artesania";
         $event07->capacity = 24;
@@ -124,7 +124,7 @@ class EventSeeder extends Seeder
 
         $event08->title = "Going with the Flow";
         $event08->description = "Aprender los primeros pasitos del superior Arte de no planear nada, nunca, never.";
-        $event08->date = date(16/03/2021);
+        $event08->date = "30-01-2022";
         $event08->type = "Presencial";
         $event08->category = "¿?";
         $event08->capacity = 24;
@@ -139,7 +139,7 @@ class EventSeeder extends Seeder
 
         $event09->title = "Workchop: Comer mientras los demas presentan Demo";
         $event09->description = "Compartiremos tenicas para que no se note mucho que comemos en clase mientras los otros presentan";
-        $event09->date = date(16/03/2021);
+        $event09->date = "22-07-2022";
         $event09->type = "Presencial";
         $event09->category = "Escaqueo";
         $event09->capacity = 24;
@@ -154,7 +154,7 @@ class EventSeeder extends Seeder
 
         $event10->title = "Encuentro de Coders en el Bar de Laura";
         $event10->description = "Nos prepararemos para el evento del año. Que llevar, como vestirse, etc...";
-        $event10->date = date(16/03/2021);
+        $event10->date = "04-05-2021";
         $event10->type = "Presencial";
         $event10->category = "Social";
         $event10->capacity = 24;
@@ -169,7 +169,7 @@ class EventSeeder extends Seeder
 
         $event11->title = "Viendo juntos The Mandalorian";
         $event11->description = "A quien le apetezca visionar, criticar, y llorar con este drama emotivo";
-        $event11->date = date(16/03/2021);
+        $event11->date = "05-04-2034";
         $event11->type = "Presencial";
         $event11->category = "Emocional";
         $event11->capacity = 24;

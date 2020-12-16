@@ -12,7 +12,7 @@
         @foreach($eventList as $event)
         @if($event->highlighted)
         <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-           <img src="https://loremflickr.com/320/240/computer?random={{mt_rand()}}" class="d-block w-100" alt="...">
+           <img src="https://loremflickr.com/720/500/computer?random={{mt_rand()}}" class="d-block w-100" alt="...">
           <!-- <img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTWoexfzoEpVYGD6LswveEBN18F_rKmR-8gluFtO29XoPhAVcPtu-0EzgsEfDC3xFghMrETTOBPA88NRyLwKMs" class="d-block w-100" alt="photo of event"> -->
           <div id="carouselback" class="carousel-caption d-md-block">
             <h2>{{$event->title}}</h2>

@@ -5,7 +5,7 @@
 <div class="event-details container-md">
 
    <figure class="figure">
-      <img src="https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/gallery/5ab105745cafe8eb5eadc7ae/myanmar.jpg" id="event-details-img" alt="...">
+      <img src="https://loremflickr.com/720/500/computer?random={{mt_rand()}}" id="event-details-img" alt="...">
       <h3> {{$event->date}}</h3>
    </figure>
 
