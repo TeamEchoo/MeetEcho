@@ -18,12 +18,12 @@ class Event extends Model
         'capacity',
         'instructor',
         'link',
-   
+
     ];
 
     public function users()
     {
-        return $this->belongsToMany('App\Models\User', 'event_user', 'user_id', 'event_id');
+        return $this->belongsToMany('App\Models\User', 'event_user', 'event_id', 'user_id');
     }
 
     private function getNumberOfPeople()
@@ -34,7 +34,7 @@ class Event extends Model
 
     public function isAvailable()
     {
-        if ($this->getNumberOfPeople() + 1 <= $this->capacity) {
+        if ($this->getNumberOfPeople() + 1 < $this->capacity) {
             return true;
         }
         return false;
@@ -43,13 +43,14 @@ class Event extends Model
     public function addUser($userId)
     {
         if ($this->isAvailable()) {
-           $this->users()->attach($userId);
+
+            return $this->users()->attach($userId);
         }
         return;
     }
 
     public function removeUser($userId)
     {
-        $this->users()->detach($userId);
+        return $this->users()->detach($userId);
     }
 }

@@ -62,16 +62,17 @@ class EventTest extends TestCase
 
     public function test_RegisterUser_can_enroll_in_specific_event()
     {
+        
         $this->actingAs(User::factory()->create());
-        Event::factory()->create();
+        Event::factory(3)->create();
 
-        $response = $this->post('/events/1');
+        $response = $this->post('/events/3');
 
         $response->assertStatus(200)
             ->assertViewIs('users.profile');
         
         $this->assertDatabaseHas('event_user', [
-            'event_id' => 1,
+            'event_id' => 3,
             'user_id' => 1
         ]);
     }
