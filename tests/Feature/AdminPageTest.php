@@ -10,7 +10,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 
-class adminPageTest extends TestCase
+class AdminPageTest extends TestCase
 {
     use RefreshDatabase;
 
