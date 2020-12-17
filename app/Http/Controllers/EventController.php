@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\User;
 use App\Mail\SubscribeEventMailable;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
 
@@ -19,7 +20,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $eventList = Event::all();
+        $eventList = Event::all()->where('date', '>=', Carbon::today());
         return view('events.events', ['eventList' => $eventList]);
     }
 
