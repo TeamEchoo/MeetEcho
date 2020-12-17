@@ -90,7 +90,14 @@ class EventController extends Controller
     public function store(Request $request)
     {
 
-        $validator = $request->validate([
+        $this->validator($request);
+        Event::create($request->all());
+
+        return back();
+    }
+    public function validator(Request $request){
+
+        return $request->validate([
             'title' => 'required',
             'description' => 'required',
             'date' => 'required|date|after:now',
@@ -98,13 +105,10 @@ class EventController extends Controller
             'category' => 'required',
             'capacity' => 'required|gte:0',
             'instructor' => 'required',
-            'link' => 'required|url',
+            'link' => 'required',
         ]);
-        Event::create($request->all());
 
-        return back();
     }
-
     public function adminShowEvent($id)
     {
 
@@ -148,17 +152,7 @@ class EventController extends Controller
     public function update(Request $request, $id)
     {
 
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'date' => 'required|date|after:now',
-            'type' => 'required',
-            'category' => 'required',
-            'capacity' => 'required|gte:0',
-            'instructor' => 'required',
-            'link' => 'required|url',
-        ]);
-
+        $this->validator($request);
         Event::find($id)->update($request->all());
 
         return back();
