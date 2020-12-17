@@ -41,11 +41,6 @@ class EventController extends Controller
     public function subscribe(Request $request, $id)
     {
 
-        if (!Auth::check()) {
-
-            return view('auth.register');
-        }
-
         $user = $request->user();
         if ($user->events()->find($id)) {
             return back();
@@ -64,13 +59,7 @@ class EventController extends Controller
 
     public function unSubscribe(Request $request, $id)
     {
-
-        if (!Auth::check()) {
-
-            return view('auth.register');
-        }
-
-        
+       
         $user = $request->user();
         Event::find($id)->removeUser($user->id);
 
@@ -96,20 +85,7 @@ class EventController extends Controller
 
         return back();
     }
-    public function validator(Request $request){
-
-        return $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'date' => 'required|date|after:now',
-            'type' => 'required',
-            'category' => 'required',
-            'capacity' => 'required|gte:0',
-            'instructor' => 'required',
-            'link' => 'required',
-        ]);
-
-    }
+    
     public function adminShowEvent($id)
     {
 
@@ -172,5 +148,20 @@ class EventController extends Controller
         $eventList = Event::all();
 
         return view('admin.adminPage', ['eventList' => $eventList]);
+    }
+
+    public function validator(Request $request){
+
+        return $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'date' => 'required|date|after:now',
+            'type' => 'required',
+            'category' => 'required',
+            'capacity' => 'required|gte:0',
+            'instructor' => 'required',
+            'link' => 'required',
+        ]);
+
     }
 }

@@ -19,7 +19,7 @@ class AdminPageTest extends TestCase
      *
      * @return void
      */
-    public function test_adminUser_can_see_eventList_on_adminPage()
+    public function testAdminUserCanSeeEventListOnAdminPage()
     {
         $userAdmin = User::create([
             'name' => 'vanessa',
@@ -37,7 +37,7 @@ class AdminPageTest extends TestCase
             ->assertViewHas('eventList');
     }
 
-    public function test_adminUser_can_see_eventDetail_on_adminPage()
+    public function testAdminUserCanSeeEventDetailOnAdminPage()
     {
         $userAdmin = User::create([
             'name' => 'vanessa',
@@ -56,7 +56,7 @@ class AdminPageTest extends TestCase
             ->assertViewIs('admin.adminEventDetail')
             ->assertViewHas('event');
     }
-    public function test_adminUser_can_change_highlighted_status_on_specific_Event()
+    public function testAdminUserCanChangeHighlightedStatusOnSpecificEvent()
     {
         $userAdmin = User::create([
             'name' => 'vanessa',
@@ -73,5 +73,40 @@ class AdminPageTest extends TestCase
         $response = Event::find($event->id)->highlighted;
 
         $this->assertEquals("1", $response);
+    }
+    public function testAdminUserCanDeleteSpecificEvent()
+    {
+        $event = Event::factory()->create();
+        $userAdmin = User::create([
+            'name' => 'vanessa',
+            'email' => 'van@ff.org',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'is_admin' => true,
+            'remember_token' => Str::random(10)
+        ]);
+
+        $response = $this->actingAs($userAdmin)
+            ->delete(route('eventsDelete', $event->id))
+            ->assertStatus(200);
+            $this->assertDatabaseCount('events', 0);
+        
+    }
+
+    public function testNonAdminUserCantDeleteSpecificEvent()
+    {
+        $event = Event::factory()->create();
+        $userAdmin = User::create([
+            'name' => 'vanessa',
+            'email' => 'van@ff.org',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'is_admin' => false,
+            'remember_token' => Str::random(10)
+        ]);
+
+        $response = $this->actingAs($userAdmin)
+            ->delete(route('eventsDelete', $event->id))
+            ->assertStatus(302);
+            $this->assertDatabaseCount('events', 1);
+        
     }
 }

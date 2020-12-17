@@ -24,7 +24,7 @@ class EventTest extends TestCase
      *
      * @return void
      */
-    public function test_user_can_acess_and_view_events_list()
+    public function testUserCanAcessAndViewEvents_list()
     {
         $response = $this->get('/events');
 
@@ -32,7 +32,7 @@ class EventTest extends TestCase
             ->assertViewIs('events.events');
     }
 
-    public function test_registerUser_can_acess_and_view_events_list()
+    public function testRegisterUserCanAcessAndViewEventsList()
     {
         $response = $this->actingAs(User::factory()->create())
                 ->get('/events');
@@ -40,7 +40,7 @@ class EventTest extends TestCase
             ->assertViewIs('events.events');
     }
 
-    public function test_user_can_acess_and_view_a_specific_event_detail()
+    public function testUserCanAcessAndViewSpecificEventDetail()
     {
         Event::factory()->create();
         $response = $this->get('/events/1');
@@ -49,7 +49,7 @@ class EventTest extends TestCase
             ->assertViewIs('events.eventDetail');
     }
 
-    public function test_NonRegisterUser_cannot_enroll_in_specific_event()
+    public function testNonRegisterUserCannotEnrollInSpecificEvent()
     {
         $event = Event::factory(1)->create();
         $user = User::factory(1)->create();
@@ -59,7 +59,7 @@ class EventTest extends TestCase
         $response->assertStatus(302);
     }
 
-    public function test_RegisterUser_can_enroll_in_specific_event()
+    public function testRegisterUserCanEnrollInSpecificEvent()
     {
         
         $this->actingAs(User::factory()->create());
@@ -76,7 +76,7 @@ class EventTest extends TestCase
         ]);
     }
 
-    public function test_RegisterUser_cannot_enroll_in_a_full_event()
+    public function testRegisterUserCannotEnrollInAFullEvent()
     {
         $this->actingAs(User::factory()->create());
         Event::create([
@@ -101,7 +101,7 @@ class EventTest extends TestCase
         ]);
     }
 
-    public function test_RegisterUser_can_cancel_enroll_in_specific_event()
+    public function testRegisterUserCanCancelEnrollInSpecificEvent()
     {
         $this->actingAs(User::factory()->create());
         Event::factory()->create();
@@ -118,7 +118,7 @@ class EventTest extends TestCase
     }
     
     
-    public function test_when_RegisterUser_enroll_in_specific_event_an_email_is_sent()
+    public function testWhenRegisterUserEnrollSpecificEventEmailIsSent()
    {    
         //given
         Mail::fake();
