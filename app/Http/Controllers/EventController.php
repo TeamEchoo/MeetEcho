@@ -20,7 +20,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $eventList = Event::all()->where('date', '>=', Carbon::today());
+        $eventList = Event::all()->where('date', '>=', Carbon::today('Europe/Madrid'));
         return view('events.events', ['eventList' => $eventList]);
     }
 
