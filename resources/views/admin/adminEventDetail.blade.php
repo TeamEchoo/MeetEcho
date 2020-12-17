@@ -8,7 +8,7 @@
     <h4>Description</h4>
     <p>{{$event->description}}</p>
     <div class="row justify-content-start">
-        <h4 class="col-5">Instructor</h4>
+        <h4 class="col-5">Instructor/a</h4>
         <p class="col">{{$event->instructor}}</p>
     </div>
     <div class="row justify-content-start">
