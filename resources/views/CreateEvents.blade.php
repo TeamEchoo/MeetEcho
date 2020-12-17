@@ -35,7 +35,7 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="validationServer02">Instructor</label>
+            <label for="validationServer02">Instructor/a</label>
             <input type="text" class="@error('instructor') is-invalid @enderror form-control" id="validationServer02" aria-describedby="validationServer03Feedback" value="{{ old('intructor') }}" required name="instructor">
             @error('instructor')
             <p class="invalid-feedback">{{$message}}</p>
