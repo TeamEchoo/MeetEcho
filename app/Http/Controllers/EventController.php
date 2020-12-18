@@ -20,7 +20,9 @@ class EventController extends Controller
      */
     public function index()
     {
-        $eventList = Event::all()->where('date', '>=', Carbon::today('Europe/Madrid'));
+        // $eventList = Event::all()->where('date', '>=', Carbon::now());
+        $eventList = Event::all();
+
         return view('events.events', ['eventList' => $eventList]);
     }
 
@@ -46,11 +48,11 @@ class EventController extends Controller
             return back();
         }
         $event = Event::find($id);
-        
+
         $event->addUser($user->id);
-      
+
         $usermail = $user->email;
-        
+
         $correo = new SubscribeEventMailable($event);
         Mail::to($usermail)->send($correo);
 
@@ -59,7 +61,7 @@ class EventController extends Controller
 
     public function unSubscribe(Request $request, $id)
     {
-       
+
         $user = $request->user();
         Event::find($id)->removeUser($user->id);
 
@@ -85,7 +87,7 @@ class EventController extends Controller
 
         return back();
     }
-    
+
     public function adminShowEvent($id)
     {
 
@@ -150,7 +152,8 @@ class EventController extends Controller
         return view('admin.adminPage', ['eventList' => $eventList]);
     }
 
-    public function validator(Request $request){
+    public function validator(Request $request)
+    {
 
         return $request->validate([
             'title' => 'required',
@@ -162,6 +165,5 @@ class EventController extends Controller
             'instructor' => 'required',
             'link' => 'required',
         ]);
-
     }
 }
