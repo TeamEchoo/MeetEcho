@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
 
+
+
 <div class="profile container">
-
-
     <section class="profile-info">
         <img src="https://loremflickr.com/100/100/faces" alt="">
         <h2>{{$user->name}}</h2>
@@ -33,6 +33,5 @@
             @endforeach
         </ul>
     </section>
-
 </div>
 @endsection;
